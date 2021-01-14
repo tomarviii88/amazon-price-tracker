@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export const SET_EMAIL = 'SET_EMAIL';
-export const SUBSCRIBE_FOR_URL = 'SUBSCRIBE_FOR_URL';
+export const TRACK_ITEM = 'TRACK_ITEM';
+export const DELETE_ALL_ITEM = 'DELETE_ALL_ITEM';
+export const DELETE_ITEM_TRACKING = 'DELETE_ITEM_TRACKING';
 
 export const setEmail = data => ({
   type: SET_EMAIL,
@@ -9,10 +11,18 @@ export const setEmail = data => ({
 });
 
 export const subscribeForPriceTracker = data => ({
-  type: SUBSCRIBE_FOR_URL,
+  type: TRACK_ITEM,
   data
 });
 
+export const deleteItemTracking = data => ({
+  type: DELETE_ITEM_TRACKING,
+  data
+});
+
+export const deleteAllItems = () => ({
+  type: DELETE_ALL_ITEM
+});
 export const fetchRes = async data => {
   console.log('ana');
   const config = {
@@ -20,11 +30,7 @@ export const fetchRes = async data => {
       'Content-Type': 'application/json'
     }
   };
-
   const body = JSON.stringify(data);
-
-  //const urls = JSON.parse(data);
-  //console.log(urls);
   console.log(data);
   const res = await axios.post(`http://localhost:3000/getToken`, body, config);
   console.log(res);

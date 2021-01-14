@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.options {
+  color: #f20a8d;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  justify-content: space-between;
+}
+
+.href {
+  text-decoration: none;
+  color: #f20a8d;
+}
