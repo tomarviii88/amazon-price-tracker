@@ -1,30 +1,39 @@
 {
   "manifest_version": 2,
-  "name": "Extension Name",
+  "name": "Price Tracker",
+  "description": "Keeps track of the price of the amazon product",
   "version": "0.1",
-  "description": "Some Description",
-  "permissions": [
-  ],
+  "permissions": ["storage", "tabs", "alarms"],
   "background": {
-    "scripts": ["static/js/background.js"]
+    "scripts": ["static/js/background.js"],
+    "persistent": false
   },
-  "content_scripts": [{
-    "js": [ "static/js/content.js" ],
-    "matches": [
-      "http://*.example.com/*", "https://*.example.com/*"
-    ]
-  }],
+  "content_scripts": [
+    {
+      "js": ["static/js/content.js"],
+      "matches": [
+        "https://stackoverflow.com/*",
+        "https://*.stackoverflow.com/*",
+        "https://*.stackexchange.com/*"
+      ]
+    }
+  ],
   "icons": {
-    "192": "logo192.png"
+    "16": "logo192.png",
+    "32": "logo192.png",
+    "64": "logo192.png",
+    "128": "logo192.png"
   },
   "browser_action": {
     "default_icon": {
-      "192": "logo192.png"
+      "16": "logo192.png",
+      "32": "logo192.png"
     },
-    "default_title": "Popup",
+    "default_title": "Price Tracker",
     "default_popup": "popup.html"
   },
   "options_ui": {
-    "page": "options.html"
+    "page": "options.html",
+    "open_in_tab": true
   }
 }
