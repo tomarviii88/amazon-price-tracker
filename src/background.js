@@ -19,16 +19,15 @@ chrome.runtime.onStartup.addListener(async () => {
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log('onInstalled...');
-  //chrome.alarms.create('', { periodInMinutes: 5 });
+  chrome.alarms.create('tracking', { periodInMinutes: 5 });
 });
 
 chrome.alarms.onAlarm.addListener(async alarm => {
   console.log(alarm.name); // refresh
-  //helloWorld();
   const store = await getStore();
   const state = await store.getState();
   const { data } = state;
-  fetchRes(data.amazon_urls);
+  fetchRes(data);
 });
 
 chrome.tabs.onActivated.addListener(async d => {

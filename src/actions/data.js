@@ -23,6 +23,7 @@ export const deleteItemTracking = data => ({
 export const deleteAllItems = () => ({
   type: DELETE_ALL_ITEM
 });
+
 export const fetchRes = async data => {
   console.log('ana');
   const config = {
